@@ -1,6 +1,7 @@
 package window;
 
 import java.awt.Canvas;
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
@@ -12,12 +13,14 @@ public class Game extends Canvas implements Runnable{
 	private Thread thread;
 	private boolean running;
 	private static int WIDTH, HEIGHT;
+	public static Color c;
 	
 	private Object o;
 	
 	public void init(){
 		WIDTH = getWidth();
 		HEIGHT = getHeight();
+		c = new Color(255,0,100);
 		o = new Object(10, 10);
 	}
 	
@@ -39,6 +42,8 @@ public class Game extends Canvas implements Runnable{
 		g2.setRenderingHints(rh);
 		
 		o.render(g);
+		
+		
 		
 		g.dispose();
 		bs.show();
@@ -67,7 +72,7 @@ public class Game extends Canvas implements Runnable{
 	}
 	
 	public static void main(String args[]) { 
-		new Window(800, 680, "TimeWinder", new Game()); 
+		new Window(1000, 720, "TimeWinder", new Game()); 
 	}
 
 

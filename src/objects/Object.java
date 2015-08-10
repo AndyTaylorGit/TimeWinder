@@ -3,17 +3,21 @@ package objects;
 import java.awt.Color;
 import java.awt.Graphics;
 
+import window.Game;
+
 public class Object {
 	private int x, y;
+	private Color colour;
 	
 	public Object(int x, int y){
 		this.x = x;
 		this.y = y;
+		this.colour = Color.orange;
 	}
 	
 	public void render(Graphics g){
-		g.setColor(Color.BLACK);
-		g.drawRect(x, y, 10, 10);
+		g.setColor(Game.c);
+		g.fillRect(x, y, 50, 1200);
 	}
 	
 	public int getX(){
