@@ -5,18 +5,20 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.image.BufferStrategy;
+import objects.Object;
 
 public class Game extends Canvas implements Runnable{
 	
 	private Thread thread;
 	private boolean running;
 	private static int WIDTH, HEIGHT;
-
+	
+	private Object o;
 	
 	public void init(){
 		WIDTH = getWidth();
 		HEIGHT = getHeight();
-		
+		o = new Object(10, 10);
 	}
 	
 	public void tick(){
@@ -36,6 +38,7 @@ public class Game extends Canvas implements Runnable{
 	             RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 		g2.setRenderingHints(rh);
 		
+		o.render(g);
 		
 		g.dispose();
 		bs.show();
